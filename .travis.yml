@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_intall:
+  - docker build -t mcxcr/docker-react1 -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true mcxcr/docker-react1 npm run test
